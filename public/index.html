@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Chat</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="/css_v/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="css_v/bootstrap.min.css" />
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body class="flex-container container" {>
+    <div id="app">
+      <h1 class="text-center">Online Vue-Node Chat</h1>
+
+      <div class="flex-item" v-if="state == 0">
+        <h3 class="text-center">Welcome!</h3>
+        <h5 class="text-center">Please choose a username</h5>
+        <form
+          class="flex-item form-inline"
+          role="form"
+          @submit.prevent="setUsername"
+        >
+          <div class="form-group mb-2 flex-item">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Username..."
+              v-model:value="username"
+              maxlength="19"
+            />
+            <button type="submit" class="ml-2 btn btn-primary">
+              Join Chat
+            </button>
+          </div>
+        </form>
+        <button class="btn btn-warning" @click="continueWithoutUsername">
+          Join as a Guest
+        </button>
+      </div>
+      <div class="flex-item" v-if="state == 1">
+        <button type="button" class="btn btn-danger mb-2" @click="signout">
+          Sign Out
+        </button>
+        <ul id="chatbox" class="form-control">
+          <li v-for="message in messages">
+            <b>{{ message.handle }}:</b> {{ message.Output }}
+          </li>
+          <div id="feedback" v-if="feedback !== null">
+            <p>
+              <em>{{ feedback }} is typing...</em>
+            </p>
+          </div>
+        </ul>
+
+        <form @submit.prevent="sendMessage">
+          <input
+            id="Message"
+            type="text"
+            placeholder="Message..."
+            v-model:value="message"
+            v-on:keypress="sendFeedback()"
+            class="form-control"
+            max="90"
+            required
+          />
+          <button type="submit" class="btn btn-primary">
+            Send as {{ username }}
+          </button>
+        </form>
+      </div>
+    </div>
+    <code>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="/js/jq.js"></script>
+      <script src="/js_v/bootstrap.min.js"></script>
+      <script src="/js/app.js"></script>
+    </code>
+  </body>
+</html>

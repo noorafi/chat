@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+.flex-container {
+  height: 100%;
+  padding: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#chatbox {
+  height: 200px;
+  overflow-y:scroll;
+}
+form {
+  margin: auto;
+  display: table;
+}
+li{list-style: none;}
+.flex-item{
+text-align: center;
+}

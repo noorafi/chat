@@ -1,0 +1,33 @@
+{
+  "name": "vm.websocket",
+  "version": "1.0.0",
+  "description": "VM Websocket",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waelio/vm.websocket.git"
+  },
+  "keywords": [
+    "VM",
+    "Websocket"
+  ],
+  "author": "Wael Wahbeh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waelio/vm.websocket/issues"
+  },
+  "homepage": "https://github.com/waelio/vm.websocket#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "mongodb": "^3.1.13",
+    "socket.io": "^2.2.0"
+  }
+}
